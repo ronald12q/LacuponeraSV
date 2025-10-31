@@ -27,7 +27,7 @@
         }
     </script>
 </head>
-<body class="bg-gradient-to-br from-[#1a1f3a] to-[#2d3561] min-h-screen flex justify-center items-center text-white font-sans py-12">
+<body class="bg-[#1D212D] min-h-screen flex justify-center items-center text-white font-sans py-12">
     <div class="w-full max-w-2xl px-8">
         <header class="text-center mb-8">
             <h1 class="text-6xl text-[#7132d1ff] mb-4 font-light tracking-wide">Cuponera SV</h1>
@@ -41,9 +41,9 @@
                 </div>
             <?php endif; ?>
             
-            <div class="bg-[#2c3e5f]/30 backdrop-blur-sm border border-[#3d4d6f] rounded-2xl p-8 shadow-2xl">
+            <div class="bg-[#1E233A]/30 backdrop-blur-sm border border-[#3d4d6f] rounded-2xl p-8 shadow-2xl">
                 <form action="?url=register/store" method="POST" class="space-y-5">
-                    <!-- Campo oculto para el rol -->
+                   
                     <?php if(isset($role)): ?>
                         <input type="hidden" name="role" value="<?php echo htmlspecialchars(string: $role); ?>">
                     <?php endif; ?>
@@ -275,7 +275,7 @@
                     <!-- Botón para enviar el formulario -->
                     <button 
                         type="submit"
-                        class="w-full bg-[#5c7cff] hover:bg-[#4d6eef] text-white font-normal py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-[#6c8aff]/50 mt-6"
+                        class="w-full bg-[#362DD2] hover:bg-[#4d6eef] text-white font-normal py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-[#6c8aff]/50 mt-6"
                     >
                         Registrarse
                     </button>

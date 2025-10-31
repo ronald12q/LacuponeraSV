@@ -33,7 +33,7 @@
         }
     </script>
 </head>
-<body class="bg-gradient-to-br from-[#151829] to-[#1e2139] min-h-screen text-white font-sans">
+<body class="bg-[#1D212D] min-h-screen text-white font-sans">
     <div class="flex min-h-screen">
 
         <aside class="w-64 bg-[#0f111f] shadow-2xl">
@@ -96,25 +96,25 @@
            
             <div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto mt-12">
                
-                <div class="bg-gradient-to-br from-[#5b4a9f] to-[#3d2f6b] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
+                <div class="bg-[#26165B] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
                     <h3 class="text-lg font-light mb-4 text-gray-100">Empresas Registradas</h3>
                     <p class="text-6xl font-bold">5</p>
                 </div>
 
                
-                <div class="bg-gradient-to-br from-[#5b4a9f] to-[#3d2f6b] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
+                <div class="bg-[#26165B] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
                     <h3 class="text-lg font-light mb-4 text-gray-100">Ventas Totales</h3>
                     <p class="text-6xl font-bold">$20,000</p>
                 </div>
 
           
-                <div class="bg-gradient-to-br from-[#5b4a9f] to-[#3d2f6b] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
+                <div class="bg-[#26165B] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
                     <h3 class="text-lg font-light mb-4 text-gray-100">Usuarios Registrado</h3>
                     <p class="text-6xl font-bold">25</p>
                 </div>
 
              
-                <div class="bg-gradient-to-br from-[#5b4a9f] to-[#3d2f6b] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
+                <div class="bg-[#26165B] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
                     <h3 class="text-lg font-light mb-4 text-gray-100">Cupones Vendido</h3>
                     <p class="text-6xl font-bold">125</p>
                 </div>

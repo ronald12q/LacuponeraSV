@@ -27,7 +27,7 @@
         }
     </script>
 </head>
-<body class="bg-gradient-to-br from-[#1a1f3a] to-[#2d3561] min-h-screen flex justify-center items-center text-white font-sans py-12">
+<body class="bg-[#1D212D] min-h-screen flex justify-center items-center text-white font-sans py-12">
     <div class="w-full max-w-md px-8">
         <header class="text-center mb-8">
             <h1 class="text-5xl text-[#6c8aff] mb-6 font-light tracking-wide">Cuponera SV</h1>
@@ -68,7 +68,7 @@
                 </div>
             <?php endif; ?>
 
-            <div class="bg-[#2c3e5f]/30 backdrop-blur-sm border border-[#3d4d6f] rounded-2xl p-8 shadow-2xl">
+            <div class="bg-[#1E233A]/30 backdrop-blur-sm border border-[#3d4d6f] rounded-2xl p-8 shadow-2xl">
                 <form action="?url=login/authenticate" method="POST" class="space-y-6">
         
                     <?php if(isset($role)): ?>
@@ -107,7 +107,7 @@
                     <!-- Botón de Iniciar Sesión -->
                     <button 
                         type="submit"
-                        class="w-full bg-[#5c7cff] hover:bg-[#4d6eef] text-white font-normal py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-[#6c8aff]/50 mt-6"
+                        class="w-full bg-[#362DD2] hover:bg-[#4d6eef] text-white font-normal py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-[#6c8aff]/50 mt-6"
                     >
                         Iniciar Sesión
                     </button>

@@ -34,7 +34,7 @@
         }
     </script>
 </head>
-<body class="bg-gradient-to-br from-[#1a1f3a] to-[#2d3561] min-h-screen flex justify-center items-center text-white font-sans">
+<body class="bg-[#1D212D] min-h-screen flex justify-center items-center text-white font-sans">
     <div class="w-full max-w-5xl px-8 py-12">
         <header class="text-center mb-20">
             <h1 class="text-7xl text-[#7132d1ff]  text-strong mb-2 font-light tracking-wide">Cuponera SV</h1>
@@ -45,21 +45,21 @@
          
             <div class="grid grid-cols-3 gap-x-20 mb-16">
                 <a href="?url=login/empresas" class="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:-translate-y-2">
-                    <div class="w-32 h-32 bg-[#2c3e5f] rounded-xl flex justify-center items-center mb-4 shadow-xl transition-all duration-300 hover:shadow-[#6c8aff]/30 hover:bg-[#364968]">
+                    <div class="w-32 h-32 bg-[#1E233A] rounded-xl flex justify-center items-center mb-4 shadow-xl transition-all duration-300 hover:shadow-[#6c8aff]/30 hover:bg-[#2a3150]">
                         <img src="public/images/empresas-icon.png" alt="Empresas" class="w-16 h-16 object-contain">
                     </div>
                     <h2 class="text-lg font-light text-white">Empresas</h2>
                 </a>
 
                 <a href="?url=login/admin" class="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:-translate-y-2">
-                    <div class="w-32 h-32 bg-[#2c3e5f] rounded-xl flex justify-center items-center mb-4 shadow-xl transition-all duration-300 hover:shadow-[#6c8aff]/30 hover:bg-[#364968]">
+                    <div class="w-32 h-32 bg-[#1E233A] rounded-xl flex justify-center items-center mb-4 shadow-xl transition-all duration-300 hover:shadow-[#6c8aff]/30 hover:bg-[#2a3150]">
                         <img src="public/images/admin-icon.png" alt="Administradores" class="w-16 h-16 object-contain">
                     </div>
                     <h2 class="text-lg font-light text-white">Administradores</h2>
                 </a>
 
                 <a href="?url=login/cliente" class="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:-translate-y-2">
-                    <div class="w-32 h-32 bg-[#2c3e5f] rounded-xl flex justify-center items-center mb-4 shadow-xl transition-all duration-300 hover:shadow-[#6c8aff]/30 hover:bg-[#364968]">
+                    <div class="w-32 h-32 bg-[#1E233A] rounded-xl flex justify-center items-center mb-4 shadow-xl transition-all duration-300 hover:shadow-[#6c8aff]/30 hover:bg-[#2a3150]">
                         <img src="public/images/clientes-icon.png" alt="Clientes" class="w-16 h-16 object-contain">
                     </div>
                     <h2 class="text-lg font-light text-white">Clientes</h2>
@@ -69,7 +69,7 @@
             
             <div class="flex justify-center">
                 <a href="?url=anonimo" class="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:-translate-y-2">
-                    <div class="w-32 h-32 bg-[#2c3e5f] rounded-xl flex justify-center items-center mb-4 shadow-xl transition-all duration-300 hover:shadow-[#6c8aff]/30 hover:bg-[#364968]">
+                    <div class="w-32 h-32 bg-[#1E233A] rounded-xl flex justify-center items-center mb-4 shadow-xl transition-all duration-300 hover:shadow-[#6c8aff]/30 hover:bg-[#2a3150]">
                         <img src="public/images/anonimo-icon.png" alt="Anónimo" class="w-16 h-16 object-contain">
                     </div>
                     <h2 class="text-lg font-light text-white">Anonimo</h2>
