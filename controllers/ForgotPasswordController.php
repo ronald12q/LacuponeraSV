@@ -23,7 +23,7 @@ class ForgotPasswordController {
         $email = trim(string: $_POST['email'] ?? '');
         $newPassword = $_POST['new_password'] ?? '';
 
-        // Validaciones
+        // Validaciones basicas y tambien filtros basico de seguridad
         if (empty($email) || empty($newPassword)) {
             $_SESSION['error'] = 'Todos los campos son obligatorios';
             header(header: 'Location: ?url=forgotPassword');
@@ -49,7 +49,10 @@ class ForgotPasswordController {
             exit();
         }
 
-        // Actualizar la contraseña
+        // Actualizar la contraseña 
+        // futuro - la app funciona pero me envia al home cuando deberia mantenerse dentro de la misma view
+        //  apunte para corregir luego
+
         if ($this->userModel->updatePassword(email: $email, newPassword: $newPassword)) {
             $_SESSION['success'] = 'Contraseña actualizada exitosamente. Ya puedes iniciar sesión.';
             header(header: 'Location: ?url=login');
