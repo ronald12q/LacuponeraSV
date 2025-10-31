@@ -7,7 +7,7 @@ class LoginController {
     // Mostrar formulario de login según el rol
     public function index(): never {
         // hacemos un excepcion 
-        header('Location: ?url=home');
+        header(header: 'Location: ?url=home');
         exit;
     }
 

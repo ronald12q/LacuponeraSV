@@ -44,7 +44,7 @@ class RegisterController {
         $usuario = $_POST['usuario'] ?? '';
         $password = $_POST['password'] ?? '';
         
-        // Validar campos básicos
+        // Validar campos de forma basica básicos
         if (empty($email) || empty($usuario) || empty($password)) {
             $_SESSION['error'] = 'Todos los campos son obligatorios';
             header(header: 'Location: ?url=register/' . $role);

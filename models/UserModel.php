@@ -135,7 +135,7 @@ class UserModel {
             $user = $stmt->fetch();
             
             if ($user && password_verify(password: $password, hash: $user['password'])) {
-                // No retornar el password
+              
                 unset($user['password']);
                 return $user;
             }
@@ -180,7 +180,7 @@ class UserModel {
         }
     }
 
-    // Actualizar contraseña por email
+    // Actualizar contraseña por email tomamos de parametro unico 
     public function updatePassword($email, $newPassword): bool {
         try {
             $hashedPassword = password_hash(password: $newPassword, algo: PASSWORD_DEFAULT);

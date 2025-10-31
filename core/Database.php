@@ -18,11 +18,11 @@ class Database {
 
         try {
 
-            $this->pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
+            $this->pdo = new PDO(dsn: "mysql:host=$host;dbname=$db;charset=utf8mb4", username: $user, password: $pass);
 
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo->setAttribute(attribute: PDO::ATTR_ERRMODE, value: PDO::ERRMODE_EXCEPTION);
 
-            $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            $this->pdo->setAttribute(attribute: PDO::ATTR_DEFAULT_FETCH_MODE, value: PDO::FETCH_ASSOC);
 
         } catch (PDOException $e) {
 
@@ -32,7 +32,7 @@ class Database {
 
     }
 
-    public function getConnection() {
+    public function getConnection(): PDO {
 
         return $this->pdo;
 

@@ -70,9 +70,9 @@
 
             <div class="bg-[#2c3e5f]/30 backdrop-blur-sm border border-[#3d4d6f] rounded-2xl p-8 shadow-2xl">
                 <form action="?url=login/authenticate" method="POST" class="space-y-6">
-                    <!-- Campo oculto para el rol -->
+        
                     <?php if(isset($role)): ?>
-                        <input type="hidden" name="role" value="<?php echo htmlspecialchars($role); ?>">
+                        <input type="hidden" name="role" value="<?php echo htmlspecialchars(string: $role); ?>">
                     <?php endif; ?>
 
                     <!-- Correo Electrónico -->
