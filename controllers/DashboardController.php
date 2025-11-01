@@ -16,14 +16,16 @@ class DashboardController {
 
 
     public function empresas(): void {
-        
+        // Verificar que el usuario esté logueado y sea empresa 
+        // si intentamos acceder directo hacia el dashboard nos envia 
+        // hacia home 
         if (!isset($_SESSION['user_id']) || $_SESSION['id_rol'] != 2) {
-            header(header: 'Location: ?url=home');
+            header('Location: ?url=home');
             exit;
         }
 
-        //
-        echo "Dashboard Empresas - Próximamente";
+        // Cargar la vista del dashboard empresas
+        require_once 'views/Empresas_dashboard.php';
     }
 
  

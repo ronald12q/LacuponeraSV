@@ -10,21 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#6c8aff',
-                        dark: {
-                            100: '#2d3561',
-                            200: '#1a1f3a',
-                        }
-                    },
+         
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
                     }
                 }
-            }
-        }
+       
     </script>
 </head>
 <body class="bg-[#1D212D] min-h-screen flex justify-center items-center text-white font-sans py-12">
