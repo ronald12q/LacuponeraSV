@@ -50,12 +50,9 @@ class ForgotPasswordController {
         }
 
         // Actualizar la contraseña 
-        // futuro - la app funciona pero me envia al home cuando deberia mantenerse dentro de la misma view
-        //  apunte para corregir luego
-
         if ($this->userModel->updatePassword(email: $email, newPassword: $newPassword)) {
             $_SESSION['success'] = 'Contraseña actualizada exitosamente. Ya puedes iniciar sesión.';
-            header(header: 'Location: ?url=login');
+            header(header: 'Location: ?url=forgotPassword');
             exit();
         } else {
             $_SESSION['error'] = 'Error al actualizar la contraseña. Intenta nuevamente o espera.';

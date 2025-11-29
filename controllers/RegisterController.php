@@ -111,7 +111,12 @@ class RegisterController {
         }
 
         if ($success) {
-            $_SESSION['success'] = 'Registro exitoso. Ahora puedes iniciar sesion.';
+            
+            if ($role === 'empresas') {
+                $_SESSION['success'] = 'Solicitud enviada exitosamente. Tu registro está a la espera de aprobación por el administrador.';
+            } else {
+                $_SESSION['success'] = 'Registro exitoso. Ahora puedes iniciar sesión.';
+            }
             header(header: 'Location: ?url=login/' . $role);
         } else {
             $_SESSION['error'] = 'Error al registrar. Intenta nuevamente o espere.';
