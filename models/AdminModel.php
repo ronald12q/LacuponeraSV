@@ -10,7 +10,7 @@ class AdminModel {
         $this->db = $database->getConnection();
     }
 
-    // Obtener estadísticas generales del dashboard
+   
     public function getEstadisticasGenerales() {
         $stats = [];
         
@@ -33,7 +33,7 @@ class AdminModel {
         return $stats;
     }
 
-    // Obtener solicitudes de empresas pendientes
+
     public function getSolicitudesEmpresas() {
         $query = "SELECT e.id_empresa, e.nombre_empresa, e.fecha_registro, u.email 
                   FROM empresas e
@@ -45,25 +45,21 @@ class AdminModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Aprobar empresa
-    public function aprobarEmpresa($id_empresa) {
+        public function aprobarEmpresa($id_empresa) {
         $query = "UPDATE empresas SET aprobada = 1 WHERE id_empresa = :id_empresa";
         $stmt = $this->db->prepare($query);
         return $stmt->execute(['id_empresa' => $id_empresa]);
     }
 
-    // Rechazar empresa (eliminar o marcar como rechazada)
+
     public function rechazarEmpresa($id_empresa) {
-        // Opción 1: Eliminar la empresa (y su usuario asociado en cascada)
-        // Opción 2: Marcar como rechazada (requeriría agregar campo en BD)
-        // Por ahora usaremos eliminar
+        
         $query = "DELETE FROM empresas WHERE id_empresa = :id_empresa";
         $stmt = $this->db->prepare($query);
         return $stmt->execute(['id_empresa' => $id_empresa]);
     }
 
-    // Obtener reporte de empresas aprobadas con estadísticas
-    public function getReporteEmpresas() {
+        public function getReporteEmpresas() {
         $query = "SELECT 
                     e.id_empresa,
                     e.nombre_empresa,

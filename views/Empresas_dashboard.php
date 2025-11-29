@@ -65,33 +65,33 @@
                     
                     <div class="bg-[#26165B] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
                         <h3 class="text-lg font-light mb-4 text-gray-100">Cupones Ofertados</h3>
-                        <p class="text-6xl font-bold">500</p>
+                        <p class="text-6xl font-bold"><?php echo $estadisticas['cupones_ofertados']; ?></p>
                     </div>
 
                   
                     <div class="bg-[#26165B] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
                         <h3 class="text-lg font-light mb-4 text-gray-100">Cupones Vendidos</h3>
-                        <p class="text-6xl font-bold">123</p>
+                        <p class="text-6xl font-bold"><?php echo $estadisticas['cupones_vendidos']; ?></p>
                     </div>
 
               
                     <div class="bg-[#26165B] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
                         <h3 class="text-lg font-light mb-4 text-gray-100">Total Ventas</h3>
-                        <p class="text-6xl font-bold">$500</p>
+                        <p class="text-6xl font-bold">$<?php echo number_format($estadisticas['total_ventas'], 2); ?></p>
                     </div>
 
               
                     <div class="bg-[#26165B] rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105">
                         <h3 class="text-lg font-light mb-4 text-gray-100">Solicitudes Pendientes</h3>
-                        <p class="text-6xl font-bold">24</p>
+                        <p class="text-6xl font-bold"><?php echo $estadisticas['solicitudes_pendientes']; ?></p>
                     </div>
                 </div>
 
      
                 <div class="flex justify-center mt-12">
-                    <button class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-2xl font-semibold py-6 px-32 rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-green-500/50">
+                    <a href="?url=dashboard/ofertarCupon" class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-2xl font-semibold py-6 px-32 rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-green-500/50 inline-block text-center">
                         Ofertar Cupon
-                    </button>
+                    </a>
                 </div>
             </div>
         </main>
