@@ -10,13 +10,13 @@ class EmpresaModel {
         $this->db = $database->getConnection();
     }
 
-    public function getEstadisticasEmpresa($id_usuario) {
+    public function getEstadisticasEmpresa($id_usuario): array {
         $stats = [];
         
      
-        $stmt = $this->db->prepare("SELECT id_empresa FROM empresas WHERE id_usuario = :id_usuario");
-        $stmt->execute(['id_usuario' => $id_usuario]);
-        $empresa = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->db->prepare(query: "SELECT id_empresa FROM empresas WHERE id_usuario = :id_usuario");
+        $stmt->execute(params: ['id_usuario' => $id_usuario]);
+        $empresa = $stmt->fetch(mode: PDO::FETCH_ASSOC);
         
         if (!$empresa) {
             return [
@@ -30,49 +30,49 @@ class EmpresaModel {
         $id_empresa = $empresa['id_empresa'];
         
   
-        $stmt = $this->db->prepare("SELECT COALESCE(SUM(cantidad_cupones), 0) as total FROM cupones WHERE id_empresa = :id_empresa");
-        $stmt->execute(['id_empresa' => $id_empresa]);
-        $stats['cupones_ofertados'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+        $stmt = $this->db->prepare(query: "SELECT COALESCE(SUM(cantidad_cupones), 0) as total FROM cupones WHERE id_empresa = :id_empresa");
+        $stmt->execute(params: ['id_empresa' => $id_empresa]);
+        $stats['cupones_ofertados'] = $stmt->fetch(mode: PDO::FETCH_ASSOC)['total'];
         
         
-        $stmt = $this->db->prepare("
+        $stmt = $this->db->prepare(query: "
             SELECT COALESCE(SUM(co.cantidad), 0) as total 
             FROM compras co
             INNER JOIN cupones cu ON co.id_oferta = cu.id_oferta
             WHERE cu.id_empresa = :id_empresa
         ");
-        $stmt->execute(['id_empresa' => $id_empresa]);
-        $stats['cupones_vendidos'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+        $stmt->execute(params: ['id_empresa' => $id_empresa]);
+        $stats['cupones_vendidos'] = $stmt->fetch(mode: PDO::FETCH_ASSOC)['total'];
         
         
-        $stmt = $this->db->prepare("
+        $stmt = $this->db->prepare(query: "
             SELECT COALESCE(SUM(co.total_pagado), 0) as total 
             FROM compras co
             INNER JOIN cupones cu ON co.id_oferta = cu.id_oferta
             WHERE cu.id_empresa = :id_empresa
         ");
-        $stmt->execute(['id_empresa' => $id_empresa]);
-        $stats['total_ventas'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+        $stmt->execute(params: ['id_empresa' => $id_empresa]);
+        $stats['total_ventas'] = $stmt->fetch(mode: PDO::FETCH_ASSOC)['total'];
         
     
-        $stmt = $this->db->prepare("
+        $stmt = $this->db->prepare(query: "
             SELECT COUNT(*) as total 
             FROM cupones 
             WHERE id_empresa = :id_empresa AND estado_oferta = 'pendiente'
         ");
-        $stmt->execute(['id_empresa' => $id_empresa]);
-        $stats['solicitudes_pendientes'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+        $stmt->execute(params: ['id_empresa' => $id_empresa]);
+        $stats['solicitudes_pendientes'] = $stmt->fetch(mode: PDO::FETCH_ASSOC)['total'];
         
         return $stats;
     }
 
     
-    public function crearCupon($id_usuario, $data) {
+    public function crearCupon($id_usuario, $data): bool {
         try {
          
-            $stmt = $this->db->prepare("SELECT id_empresa FROM empresas WHERE id_usuario = :id_usuario");
-            $stmt->execute(['id_usuario' => $id_usuario]);
-            $empresa = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stmt = $this->db->prepare(query: "SELECT id_empresa FROM empresas WHERE id_usuario = :id_usuario");
+            $stmt->execute(params: ['id_usuario' => $id_usuario]);
+            $empresa = $stmt->fetch(mode: PDO::FETCH_ASSOC);
             
             if (!$empresa) {
                 return false;
@@ -104,8 +104,8 @@ class EmpresaModel {
                 :categoria
             )";
             
-            $stmt = $this->db->prepare($query);
-            return $stmt->execute([
+            $stmt = $this->db->prepare(query: $query);
+            return $stmt->execute(params: [
                 'id_empresa' => $empresa['id_empresa'],
                 'titulo' => $data['titulo'],
                 'descripcion' => $data['descripcion'],
@@ -119,7 +119,7 @@ class EmpresaModel {
                 'categoria' => $data['categoria']
             ]);
         } catch (PDOException $e) {
-            error_log("Error al crear cupón: " . $e->getMessage());
+            error_log(message: "Error al crear cupón: " . $e->getMessage());
             return false;
         }
     }

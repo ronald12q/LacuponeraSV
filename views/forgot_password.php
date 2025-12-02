@@ -41,7 +41,7 @@
 
             <div class="bg-[#1E233A]/30 backdrop-blur-sm border border-[#3d4d6f] rounded-2xl p-8 shadow-2xl">
                 <form action="?url=forgotPassword/reset" method="POST" class="space-y-6">
-                    <!-- Correo Electrónico -->
+        
                     <div>
                         <label for="email" class="block text-sm font-light text-gray-300 mb-2">Correo Electrónico</label>
                         <input 
@@ -54,7 +54,7 @@
                         >
                     </div>
 
-                    <!-- Nueva Contraseña -->
+         
                     <div>
                         <label for="new_password" class="block text-sm font-light text-gray-300 mb-2">Nueva Contraseña</label>
                         <input 
@@ -69,7 +69,7 @@
                         <p class="text-xs text-gray-400 mt-1">Mínimo 6 caracteres</p>
                     </div>
 
-                    <!-- Botón de Recuperar Contraseña -->
+               
                     <button 
                         type="submit"
                         class="w-full bg-[#362DD2] hover:bg-[#4d6eef] text-white font-normal py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-[#6c8aff]/50 mt-6"
@@ -77,7 +77,7 @@
                         Recuperar Contraseña
                     </button>
 
-                    <!-- Volver a iniciar sesión -->
+                
                     <div class="text-center mt-4">
                         <p class="text-sm text-gray-400">
                             ¿Recordaste tu contraseña? 
@@ -87,7 +87,7 @@
                 </form>
             </div>
 
-            <!-- Botón volver -->
+       
             <div class="text-center mt-6">
                 <a href="?url=home" class="text-sm text-gray-400 hover:text-white transition-colors">
                     ← Volver al inicio

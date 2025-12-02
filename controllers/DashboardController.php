@@ -44,15 +44,10 @@ class DashboardController {
     }
 
  
-    public function cliente(): void {
-        
-        if (!isset($_SESSION['user_id']) || $_SESSION['id_rol'] != 3) {
-            header(header: 'Location: ?url=home');
-            exit;
-        }
-
-        
-        echo "pagina  Cliente - Próximamente";
+    public function cliente(): never {
+        // Redirigir al nuevo ClienteController
+        header('Location: ?url=cliente');
+        exit;
     }
 
  
@@ -67,7 +62,6 @@ class DashboardController {
         $adminModel = new AdminModel();
         $solicitudes = $adminModel->getSolicitudesEmpresas();
 
-        // Cargar la vista de solicitudes de empresas
         require_once 'views/solicitudes_empresas.php';
     }
 
@@ -75,7 +69,7 @@ class DashboardController {
     public function reporteEmpresas(): void {
        
         if (!isset($_SESSION['user_id']) || $_SESSION['id_rol'] != 1) {
-            header('Location: ?url=home');
+            header(header: 'Location: ?url=home');
             exit;
         }
 
@@ -83,66 +77,64 @@ class DashboardController {
         $adminModel = new AdminModel();
         $empresas = $adminModel->getReporteEmpresas();
 
-        // Cargar la vista de reporte de empresas
         require_once 'views/reporte_empresas.php';
     }
 
-    // Aprobar empresa
     public function aprobarEmpresa(): never {
-        // Verificar que el usuario esté logueado y sea admin
+        
         if (!isset($_SESSION['user_id']) || $_SESSION['id_rol'] != 1) {
-            header('Location: ?url=home');
+            header(header: 'Location: ?url=home');
             exit;
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_empresa'])) {
             $adminModel = new AdminModel();
-            $adminModel->aprobarEmpresa($_POST['id_empresa']);
+            $adminModel->aprobarEmpresa(id_empresa: $_POST['id_empresa']);
         }
 
-        header('Location: ?url=dashboard/solicitudesEmpresas');
+        header(header: 'Location: ?url=dashboard/solicitudesEmpresas');
         exit;
     }
 
-    // Rechazar empresa
+  
     public function rechazarEmpresa(): never {
-        // Verificar que el usuario esté logueado y sea admin
+       
         if (!isset($_SESSION['user_id']) || $_SESSION['id_rol'] != 1) {
-            header('Location: ?url=home');
+            header(header: 'Location: ?url=home');
             exit;
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_empresa'])) {
             $adminModel = new AdminModel();
-            $adminModel->rechazarEmpresa($_POST['id_empresa']);
+            $adminModel->rechazarEmpresa(id_empresa: $_POST['id_empresa']);
         }
 
-        header('Location: ?url=dashboard/solicitudesEmpresas');
+        header(header: 'Location: ?url=dashboard/solicitudesEmpresas');
         exit;
     }
 
-    // Mostrar formulario para ofertar cupón (solo empresas)
+
     public function ofertarCupon(): void {
-        // Verificar que el usuario esté logueado y sea empresa
+        
         if (!isset($_SESSION['user_id']) || $_SESSION['id_rol'] != 2) {
-            header('Location: ?url=home');
+            header(header: 'Location: ?url=home');
             exit;
         }
 
-        // Cargar la vista del formulario
+
         require_once 'views/ofertar_cupon.php';
     }
 
-    // Procesar la creación del cupón
+
     public function guardarCupon(): never {
-        // Verificar que el usuario esté logueado y sea empresa
+   
         if (!isset($_SESSION['user_id']) || $_SESSION['id_rol'] != 2) {
-            header('Location: ?url=home');
+            header(header: 'Location: ?url=home');
             exit;
         }
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: ?url=dashboard/empresas');
+            header(header: 'Location: ?url=dashboard/empresas');
             exit;
         }
 
@@ -160,13 +152,13 @@ class DashboardController {
         ];
 
         $empresaModel = new EmpresaModel();
-        if ($empresaModel->crearCupon($_SESSION['user_id'], $data)) {
+        if ($empresaModel->crearCupon(id_usuario: $_SESSION['user_id'], data: $data)) {
             $_SESSION['success'] = 'Cupón publicado exitosamente';
         } else {
             $_SESSION['error'] = 'Error al publicar el cupón';
         }
 
-        header('Location: ?url=dashboard/empresas');
+        header(header: 'Location: ?url=dashboard/empresas');
         exit;
     }
 }

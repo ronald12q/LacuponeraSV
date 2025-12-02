@@ -112,7 +112,7 @@
                 </form>
             </div>
 
-            <!-- Botón volver -->
+            
             <div class="text-center mt-6">
                 <a href="?url=home" class="text-sm text-gray-400 hover:text-white transition-colors">
                     ← Volver al inicio

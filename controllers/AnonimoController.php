@@ -1,15 +1,72 @@
+<!-- el anonimo tiene la misma pantalla que un usuario registrado pero solo puede visualizar 
+ no hacer ninguna accion --!>
+
 <?php
 
-class AnonimoController {
+require_once 'models/HomeModel.php';
 
-    public function index() {
-      
-        //prueba temporal luego de aqui se enviara ala pagina cliente sin algunas opciones activas 
-        //teniendo que hacer login para poder usarlas 
-        echo "<h1>Bienvenido Usuario Anónimo</h1>";
-        echo "<p>Esta será la página principal para usuarios sin una cuenta.</p>";
-        echo '<a href="?url=home">Volver al inicio</a>';
+class AnonimoController {
+    private $model;
+
+    public function __construct() {
+        $this->model = new HomeModel();
+    }
+
+
+    public function index(): void {
+        $cupones = $this->model->getCuponesDisponibles();
+        $categorias = $this->model->getCategorias();
         
-      
+        require_once 'views/cupones_publicos.php';
+    }
+
+
+    public function buscar(): void {
+        $busqueda = isset($_GET['q']) ? trim($_GET['q']) : '';
+        
+        if (!empty($busqueda)) {
+            $cupones = $this->model->buscarCupones($busqueda);
+        } else {
+            $cupones = $this->model->getCuponesDisponibles();
+        }
+        
+        $categorias = $this->model->getCategorias();
+        
+        require_once 'views/cupones_publicos.php';
+    }
+
+
+    public function categoria(): void {
+        $categoriaActual = isset($_GET['cat']) ? trim($_GET['cat']) : '';
+        
+        if (!empty($categoriaActual)) {
+            $cupones = $this->model->getCuponesPorCategoria($categoriaActual);
+        } else {
+            $cupones = $this->model->getCuponesDisponibles();
+        }
+        
+        $categorias = $this->model->getCategorias();
+        
+        require_once 'views/cupones_publicos.php';
+    }
+
+
+    public function verCupon(): void {
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+        
+        if ($id <= 0) {
+            header('Location: ?url=anonimo');
+            exit;
+        }
+        
+        $cupon = $this->model->getCuponById($id);
+        
+        if (!$cupon) {
+            $_SESSION['error'] = 'Cupón no encontrado';
+            header('Location: ?url=anonimo');
+            exit;
+        }
+        
+        require_once 'views/detalle_cupon.php';
     }
 }

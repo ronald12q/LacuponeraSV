@@ -164,7 +164,7 @@ class UserModel {
         }
     }
 
-    // Verificar si username ya existe
+
     public function usernameExists($username): bool {
         try {
             $sql = "SELECT id_usuario FROM usuarios WHERE username = :username";
@@ -179,8 +179,6 @@ class UserModel {
             return false;
         }
     }
-
-    // Actualizar contraseña por email tomamos de parametro unico 
     public function updatePassword($email, $newPassword): bool {
         try {
             $hashedPassword = password_hash(password: $newPassword, algo: PASSWORD_DEFAULT);

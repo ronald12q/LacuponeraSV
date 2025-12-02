@@ -72,12 +72,6 @@
 
         <main class="flex-1 p-8">
             <div class="max-w-6xl mx-auto">
-           
-                <div class="mb-8 text-center">
-                    <p class="text-gray-400 text-sm">Component 16</p>
-                </div>
-
-
                 <div class="grid grid-cols-3 gap-8 mb-6 px-8">
                     <h2 class="text-xl font-semibold text-gray-300">Empresa</h2>
                     <h2 class="text-xl font-semibold text-gray-300 text-center">Fecha de solicitud</h2>

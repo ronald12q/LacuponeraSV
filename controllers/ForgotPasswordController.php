@@ -1,3 +1,7 @@
+<!-- restablecer contraseña sencillo sin verificacion solo tomamos el correo y nada mas --
+ en un escenario real deberiamos enviar un  formulario por correo --!>
+
+
 <?php
 
 class ForgotPasswordController {
@@ -8,7 +12,7 @@ class ForgotPasswordController {
         $this->userModel = new UserModel();
     }
 
-    // Mostrar el formulario de recuperación
+
     public function index(): void {
         require_once 'views/forgot_password.php';
     }
@@ -23,7 +27,6 @@ class ForgotPasswordController {
         $email = trim(string: $_POST['email'] ?? '');
         $newPassword = $_POST['new_password'] ?? '';
 
-        // Validaciones basicas y tambien filtros basico de seguridad
         if (empty($email) || empty($newPassword)) {
             $_SESSION['error'] = 'Todos los campos son obligatorios';
             header(header: 'Location: ?url=forgotPassword');
@@ -42,14 +45,14 @@ class ForgotPasswordController {
             exit();
         }
 
-        // Verificar si el email existe
+      
         if (!$this->userModel->emailExists(email: $email)) {
             $_SESSION['error'] = 'El correo electrónico no está registrado';
             header(header: 'Location: ?url=forgotPassword');
             exit();
         }
 
-        // Actualizar la contraseña 
+ 
         if ($this->userModel->updatePassword(email: $email, newPassword: $newPassword)) {
             $_SESSION['success'] = 'Contraseña actualizada exitosamente. Ya puedes iniciar sesión.';
             header(header: 'Location: ?url=forgotPassword');

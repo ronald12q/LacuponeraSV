@@ -4,14 +4,14 @@ require_once 'models/UserModel.php';
 
 class LoginController {
 
-    // Mostrar formulario de login según el rol
+    
     public function index(): never {
-        // hacemos un excepcion 
+        
         header(header: 'Location: ?url=home');
         exit;
     }
 
-    // ruta para cada rol 
+ 
     public function empresas(): void {
         $role = 'empresas';
         require_once 'views/login.php';
@@ -48,32 +48,36 @@ class LoginController {
             $_SESSION['role'] = $user['nombre_rol'];
             $_SESSION['id_rol'] = $user['id_rol'];
 
-            // Redirigir según el rol
             if ($user['id_rol'] == 1) {
-                // Admin
+                
                 header(header: 'Location: ?url=dashboard/admin');
             } elseif ($user['id_rol'] == 2) {
-                // Empresa
+              
                 header(header: 'Location: ?url=dashboard/empresas');
             } elseif ($user['id_rol'] == 3) {
-                // Cliente
+                
                 header(header: 'Location: ?url=dashboard/cliente');
             } else {
-                //mandamos a home o raiz de nuevo
+                
                 header(header: 'Location: ?url=home');
             }
             exit;
         } else {
-            // Login fallido
+          
             $_SESSION['error'] = 'Email o contraseña incorrectos';
             header(header: 'Location: ?url=login/' . $role);
             exit;
         }
     }
 
-    // Cerrar sesión
+   
     public function logout(): never {
-        session_destroy();
+   
+        session_regenerate_id(delete_old_session: true);
+        
+       
+        $_SESSION = [];
+        
         header(header: 'Location: ?url=home');
         exit;
     }

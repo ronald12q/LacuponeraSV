@@ -56,7 +56,7 @@
 
             
             <div class="flex justify-center">
-                <a href="?url=anonimo" class="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:-translate-y-2">
+                <a href="?url=home/cupones" class="flex flex-col items-center cursor-pointer transition-transform duration-300 hover:-translate-y-2">
                     <div class="w-32 h-32 bg-[#1E233A] rounded-xl flex justify-center items-center mb-4 shadow-xl transition-all duration-300 hover:shadow-[#6c8aff]/30 hover:bg-[#2a3150]">
                         <img src="public/images/anonimo-icon.png" alt="Anónimo" class="w-16 h-16 object-contain">
                     </div>

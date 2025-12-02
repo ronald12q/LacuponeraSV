@@ -6,7 +6,7 @@ class Router {
 
         $parts = explode('/', $url);
 
-        $controller = ucfirst($parts[0]) . 'Controller';
+        $controller = ucfirst(string: $parts[0]) . 'Controller';
 
         $action = isset($parts[1]) ? $parts[1] : 'index';
 
